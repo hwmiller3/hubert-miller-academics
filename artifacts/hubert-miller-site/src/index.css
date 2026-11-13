@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -50,7 +50,7 @@
   --popover: 42 22% 98%;
   --popover-foreground: 160 18% 16%;
   --app-font-sans: 'DM Sans', sans-serif;
-  --app-font-serif: 'Instrument Serif', Georgia, serif;
+  --app-font-serif: 'DM Sans', sans-serif;
   --app-font-mono: 'DM Sans', monospace;
   --radius: 0.25rem;
   --button-outline: rgba(18, 61, 47, .12);
@@ -100,7 +100,7 @@
 .eyebrow { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: hsl(var(--primary)); }
 .page-enter { animation: enter .55s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-.grain::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E"); }
+.grain::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23808080' fill-opacity='.18'%3E%3Ccircle cx='10' cy='10' r='1.2'/%3E%3Ccircle cx='50' cy='30' r='1.2'/%3E%3Ccircle cx='90' cy='20' r='1.2'/%3E%3Ccircle cx='120' cy='70' r='1.2'/%3E%3Ccircle cx='160' cy='40' r='1.2'/%3E%3Ccircle cx='30' cy='80' r='1.2'/%3E%3Ccircle cx='70' cy='100' r='1.2'/%3E%3Ccircle cx='110' cy='120' r='1.2'/%3E%3Ccircle cx='150' cy='90' r='1.2'/%3E%3Ccircle cx='40' cy='140' r='1.2'/%3E%3Ccircle cx='90' cy='160' r='1.2'/%3E%3Ccircle cx='140' cy='150' r='1.2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
 a { text-underline-offset: 4px; }
 a:focus-visible, button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
