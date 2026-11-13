@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Hubert W. Miller III"
+description = "A responsive academic website introducing Hubert W. Miller III's background, research on communication and social norms, selected publications, and CV."
+version = "1.0.0"
+id = "artifacts/hubert-miller-site"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23687
+
+[services.development]
+run = "pnpm --filter @workspace/hubert-miller-site run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hubert-miller-site", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/hubert-miller-site/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23687"
+BASE_PATH = "/"

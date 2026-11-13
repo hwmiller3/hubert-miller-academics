@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --font-sans: var(--app-font-sans);
+  --font-serif: var(--app-font-serif);
+  --font-mono: var(--app-font-mono);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+}
+
+:root {
+  --background: 42 23% 96%;
+  --foreground: 160 18% 16%;
+  --border: 152 11% 83%;
+  --input: 152 11% 83%;
+  --ring: 153 64% 25%;
+  --card: 42 22% 98%;
+  --card-foreground: 160 18% 16%;
+  --primary: 153 64% 25%;
+  --primary-foreground: 40 30% 97%;
+  --secondary: 145 17% 90%;
+  --secondary-foreground: 160 18% 18%;
+  --muted: 145 16% 91%;
+  --muted-foreground: 159 9% 39%;
+  --accent: 42 38% 85%;
+  --accent-foreground: 160 18% 16%;
+  --destructive: 0 70% 45%;
+  --destructive-foreground: 40 30% 97%;
+  --popover: 42 22% 98%;
+  --popover-foreground: 160 18% 16%;
+  --app-font-sans: 'DM Sans', sans-serif;
+  --app-font-serif: 'Instrument Serif', Georgia, serif;
+  --app-font-mono: 'DM Sans', monospace;
+  --radius: 0.25rem;
+  --button-outline: rgba(18, 61, 47, .12);
+  --badge-outline: rgba(18, 61, 47, .08);
+  --elevate-1: rgba(18, 61, 47, .035);
+  --elevate-2: rgba(18, 61, 47, .08);
+  --chart-1: 153 64% 25%;
+  --chart-2: 42 43% 55%;
+  --chart-3: 195 25% 53%;
+  --chart-4: 24 42% 61%;
+  --chart-5: 160 10% 42%;
+}
+.dark {
+  --background: 160 20% 10%;
+  --foreground: 42 22% 92%;
+  --border: 155 13% 28%;
+  --input: 155 13% 28%;
+  --ring: 145 48% 54%;
+  --card: 160 18% 13%;
+  --card-foreground: 42 22% 92%;
+  --primary: 145 48% 54%;
+  --primary-foreground: 160 20% 10%;
+  --secondary: 160 12% 22%;
+  --secondary-foreground: 42 22% 92%;
+  --muted: 160 12% 22%;
+  --muted-foreground: 155 10% 68%;
+  --accent: 42 25% 27%;
+  --accent-foreground: 42 22% 92%;
+  --destructive: 0 62% 48%;
+  --destructive-foreground: 42 22% 92%;
+  --popover: 160 18% 13%;
+  --popover-foreground: 42 22% 92%;
+  --chart-1: 145 48% 54%;
+  --chart-2: 42 43% 65%;
+  --chart-3: 195 25% 63%;
+  --chart-4: 24 42% 70%;
+  --chart-5: 160 10% 62%;
+}
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body { @apply font-sans antialiased bg-background text-foreground; margin: 0; }
+  ::selection { background: hsl(153 64% 25% / .18); }
+}
+.site-wrap { min-height: 100dvh; }
+.display { font-family: var(--app-font-serif); font-weight: 400; letter-spacing: -.035em; }
+.eyebrow { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: hsl(var(--primary)); }
+.page-enter { animation: enter .55s cubic-bezier(.2,.7,.2,1) both; }
+@keyframes enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.grain::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 10; opacity: .12; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E"); }
+a { text-underline-offset: 4px; }
+a:focus-visible, button:focus-visible { outline: 2px solid hsl(var(--primary)); outline-offset: 4px; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
