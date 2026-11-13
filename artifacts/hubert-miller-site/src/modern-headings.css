@@ -1,12 +1,54 @@
-h1.display,
-h2.display,
-h3.display,
-.publication-entry h3 {
-  font-weight: 700;
+.display {
+  letter-spacing: -0.045em;
+  line-height: 0.98;
 }
 
-h1.display em,
-h2.display em,
-h3.display em {
-  font-weight: 700;
+.display em {
+  letter-spacing: -0.04em;
+}
+
+.hero h1.display {
+  font-size: clamp(3.75rem, 6.7vw, 6.25rem);
+  line-height: 0.92;
+}
+
+.page-heading h1.display {
+  font-size: clamp(3.75rem, 6.2vw, 6rem);
+  line-height: 0.94;
+}
+
+.preview-copy h2.display {
+  font-size: clamp(2.25rem, 3.5vw, 3.3rem);
+  line-height: 1.04;
+}
+
+.study-title-row h2.display {
+  font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+  line-height: 1.06;
+}
+
+.theme-card h2.display,
+.interest-heading h2.display,
+.program-body h2.display,
+.closing-cta h2.display {
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+@media (max-width: 760px) {
+  .hero h1.display {
+    font-size: clamp(3.55rem, 14.5vw, 5.2rem);
+  }
+
+  .page-heading h1.display {
+    font-size: clamp(3.5rem, 13.5vw, 5rem);
+  }
+
+  .preview-copy h2.display {
+    font-size: clamp(2.35rem, 10vw, 2.8rem);
+  }
+
+  .study-title-row h2.display {
+    font-size: clamp(2.25rem, 9.5vw, 2.75rem);
+  }
 }
