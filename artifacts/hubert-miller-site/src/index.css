@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/new-computer-modern');
 @import 'tailwindcss';
 @import 'tw-animate-css';
 @plugin "@tailwindcss/typography";
@@ -50,7 +50,7 @@
   --popover: 42 22% 98%;
   --popover-foreground: 160 18% 16%;
   --app-font-sans: 'DM Sans', sans-serif;
-  --app-font-serif: 'DM Sans', sans-serif;
+  --app-font-serif: 'New Computer Modern', 'CMU Serif', serif;
   --app-font-mono: 'DM Sans', monospace;
   --radius: 0.25rem;
   --button-outline: rgba(18, 61, 47, .12);
@@ -96,7 +96,7 @@
   ::selection { background: hsl(153 64% 25% / .18); }
 }
 .site-wrap { min-height: 100dvh; }
-.display { font-family: var(--app-font-serif); font-weight: 400; letter-spacing: -.035em; }
+.display { font-family: var(--app-font-serif); font-weight: 700; letter-spacing: -.035em; }
 .eyebrow { font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 700; color: hsl(var(--primary)); }
 .page-enter { animation: enter .55s cubic-bezier(.2,.7,.2,1) both; }
 @keyframes enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
