@@ -1,12 +1,16 @@
 import { useEffect, type ReactNode } from 'react';
 import { ArrowRight, ArrowUpRight, BookOpen, BriefcaseBusiness, Download, ExternalLink, FileText, Mail, Orbit, Quote } from 'lucide-react';
-import { Link, Route, Switch, useLocation } from 'wouter';
+import { Link, Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 import NotFound from '@/pages/not-found';
 import './site.css';
 
 const ORCID = 'https://orcid.org/0009-0003-7250-315X';
 const DOI = 'https://doi.org/10.1016/j.copsyc.2024.101851';
-const CV = '/files/hubert-miller-cv.pdf';
+const publicFile = (file: string) => `${import.meta.env.BASE_URL}files/${file}`;
+const CV = publicFile('hubert-miller-cv.pdf');
+const PROFILE = publicFile('hubert-miller-profile.jpeg');
+const FEATURED_FIGURE = publicFile('fins-model.png');
+const FEATURED_PAPER = publicFile('fins-review-2024.pdf');
 const pageMeta: Record<string, { title: string; description: string }> = {
   '/': { title: 'About | Hubert W. Miller III', description: 'Hubert W. Miller III is a PhD student and Graduate Teaching Assistant in Communication Science at Michigan State University.' },
   '/research': { title: 'Research | Hubert W. Miller III', description: 'Research interests and publications on organizational communication, innovation diffusion, social norms, and strategic communication.' },
@@ -67,7 +71,7 @@ function Home() {
           <div className="hero-status"><span className="status-dot" /> PhD student & Graduate Teaching Assistant <span className="status-divider">/</span> MSU Department of Communication</div>
         </div>
         <figure className="portrait-block">
-          <img className="portrait" src="/files/hubert-miller-profile.jpeg" alt="Hubert W. Miller III, smiling in a checkered shirt" />
+          <img className="portrait" src={PROFILE} alt="Hubert W. Miller III, smiling in a checkered shirt" />
           <figcaption><span>East Lansing, Michigan</span><span>Academic profile <span aria-hidden="true">↗</span></span></figcaption>
           <div className="portrait-stamp" aria-hidden="true">COMMUNICATION<br />SCIENCE<br /><span>MSU</span></div>
         </figure>
@@ -110,7 +114,7 @@ function Home() {
       <section className="featured-preview">
         <div className="preview-top"><SectionLabel number="03">Featured publication</SectionLabel><span className="publication-year">2024</span></div>
         <div className="preview-main">
-          <div className="preview-art"><img src="/files/fins-model.png" alt="Diagram of the FINS model, showing feedback among decisions and actions, outcomes, and social norms, with interventions and moderators." /></div>
+          <div className="preview-art"><img src={FEATURED_FIGURE} alt="Diagram of the FINS model, showing feedback among decisions and actions, outcomes, and social norms, with interventions and moderators." /></div>
           <div className="preview-copy">
             <p className="eyebrow">Review · Current Opinion in Psychology</p>
             <h2 className="display">Persuasive communication, financial incentives, and social norms</h2>
@@ -185,12 +189,13 @@ function Research() {
             <div className="doi-card">
               <span className="eyebrow">The article</span>
               <p>Current Opinion in Psychology<br />Volume 59 · Article 101851</p>
+              <IconLink href={FEATURED_PAPER} external>Open supplied PDF</IconLink>
               <IconLink href={DOI} external>Open article DOI <ArrowUpRight size={13} aria-hidden="true" /></IconLink>
             </div>
           </aside>
         </div>
         <figure className="model-figure">
-          <div className="figure-image"><img src="/files/fins-model.png" alt="The FINS model: financial interventions can affect decisions and actions directly and social norms directly; actions influence outcomes, while feedback links connect actions and norms over time. Moderators include incentives, group identity, group orientation, and outcome expectations." /></div>
+          <div className="figure-image"><img src={FEATURED_FIGURE} alt="The FINS model: financial interventions can affect decisions and actions directly and social norms directly; actions influence outcomes, while feedback links connect actions and norms over time. Moderators include incentives, group identity, group orientation, and outcome expectations." /></div>
           <figcaption>The financial incentives in normative systems (FINS) model.</figcaption>
         </figure>
         <div className="reviewed-results">
@@ -286,8 +291,11 @@ function Router() {
 }
 
 function App() {
-  const [path] = useLocation();
-  return <Router key={path} />;
+  return (
+    <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, '')}>
+      <Router />
+    </WouterRouter>
+  );
 }
 
 export default App;
