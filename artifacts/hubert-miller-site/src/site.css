@@ -30,7 +30,7 @@
 .status-dot, .viewer-indicator { width: 7px; height: 7px; display: inline-block; border-radius: 100%; background: hsl(var(--primary)); }
 .status-divider { color: hsl(var(--border)); }
 .portrait-block { margin: 0; position: relative; justify-self: end; width: min(100%, 410px); }
-.portrait { width: 100%; height: 495px; display: block; object-fit: cover; object-position: 50% 30%; filter: saturate(.78); }
+.portrait { width: 100%; height: auto; aspect-ratio: 1 / 1; display: block; border-radius: 50%; object-fit: cover; object-position: 50% 30%; filter: saturate(.78); transition: border-radius .3s ease; }
 .portrait-block::before { content: ""; position: absolute; top: -15px; left: -15px; right: 32%; bottom: 28%; border: 1px solid hsl(var(--primary) / .38); pointer-events: none; }
 .portrait-block figcaption { display: flex; justify-content: space-between; margin-top: 12px; color: hsl(var(--muted-foreground)); font-size: .65rem; letter-spacing: .03em; }
 .portrait-stamp { position: absolute; width: 98px; height: 98px; border-radius: 100%; display: grid; align-content: center; text-align: center; top: 57%; left: -49px; background: hsl(var(--primary)); color: #f4f1e8; font-size: .51rem; letter-spacing: .13em; line-height: 1.55; transform: rotate(-9deg); box-shadow: 0 0 0 5px hsl(var(--background)); }
@@ -204,7 +204,6 @@
   .hero-deck { font-size: .88rem; max-width: 520px; }
   .hero-status { margin-top: 30px; flex-wrap: wrap; line-height: 1.5; font-size: .62rem; }
   .portrait-block { width: min(83%, 380px); align-self: center; margin: 0 0 15px; }
-  .portrait { height: clamp(335px, 105vw, 445px); }
   .portrait-stamp { width: 78px; height: 78px; font-size: .42rem; left: -33px; }
   .portrait-stamp span { font-size: .9rem; }
   .hero-index { bottom: 0; }
